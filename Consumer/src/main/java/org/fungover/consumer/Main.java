@@ -9,8 +9,14 @@ public class Main {
 
         ServiceLoader<Greeting> serviceLoader = ServiceLoader.load(Greeting.class);
 
-        for( Greeting greeting  : serviceLoader ) {
-            System.out.println(greeting.greet());
+        var greetings = serviceLoader.stream()
+                .filter(provider-> provider.type().getSimpleName().startsWith("Swedish"))
+                .map(ServiceLoader.Provider::get)
+                .toList();
+
+        for( Greeting greeting  : greetings ) {
+            if( greeting.getClass().getSimpleName().startsWith("Swedish"))
+                System.out.println(greeting.greet());
         }
     }
 }
