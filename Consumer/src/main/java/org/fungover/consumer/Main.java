@@ -20,7 +20,7 @@ public class Main {
 
         for (Greeting greeting : serviceLoader) {
             var annotation = greeting.getClass().getAnnotation(Address.class);
-            if( annotation == null)
+            if (annotation == null)
                 System.out.println("No annotation of type Address found");
             else
                 System.out.println("Annotation Address with value: " + annotation.value());
@@ -28,17 +28,22 @@ public class Main {
             var methodannotation = greeting.getClass().getMethod("greet")
                     .getAnnotation(Address.class);
 
-            if( methodannotation != null )
+            if (methodannotation != null)
                 System.out.println("Annotaded method: " + methodannotation.value());
 
             var fields = Test.class.getDeclaredFields();
-            for (var field: fields) {
+            for (var field : fields) {
                 System.out.println(field.getName());
                 field.setAccessible(true);
                 field.set(new Test(), "new value");
             }
-
-
         }
     }
+
+    public void lombokDemo(){
+        Test test = new Test();
+        test.setTest("test");
+
+    }
+
 }

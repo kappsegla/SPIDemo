@@ -17,9 +17,8 @@ public class SwedishGreeting implements Greeting {
         return "Hej hej!";
     }
 
-//    @NotNull
-//    public String test(){
-//        return null;
-//    }
-
+    @NotNull
+    public String test(){
+        return null;
+    }
 }
