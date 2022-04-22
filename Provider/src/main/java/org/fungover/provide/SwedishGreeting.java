@@ -2,8 +2,9 @@ package org.fungover.provide;
 
 import org.fungover.greet.Address;
 import org.fungover.greet.Greeting;
+import org.jetbrains.annotations.NotNull;
 
- @Address("swedish")
+@Address("swedish")
 public class SwedishGreeting implements Greeting {
 
     public SwedishGreeting() {
@@ -11,9 +12,14 @@ public class SwedishGreeting implements Greeting {
     }
 
     @Override
-    @Address("swedish")
-    @Address("extra")
+    @Address("on method")
     public String greet() {
         return "Hej hej!";
     }
+
+//    @NotNull
+//    public String test(){
+//        return null;
+//    }
+
 }
